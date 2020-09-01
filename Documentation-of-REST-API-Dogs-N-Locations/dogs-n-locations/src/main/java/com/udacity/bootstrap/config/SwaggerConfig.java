@@ -16,12 +16,6 @@ import java.util.Collections;
 
 @Configuration
 @EnableSwagger2
-@ApiResponses(value = {
-        @ApiResponse(code = 400, message = "Bad request, please follow API documentation"),
-        @ApiResponse(code = 401, message = "Security constraints: access request cannot be authorized"),
-        @ApiResponse(code = 404, message = "Dawg not found"),
-        @ApiResponse(code = 500, message = "The server is down")
-})
 public class SwaggerConfig {
 
     @Bean

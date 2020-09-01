@@ -6,6 +6,8 @@ import com.udacity.bootstrap.repository.DawgRepository;
 import com.udacity.bootstrap.service.DawgService;
 import com.udacity.bootstrap.service.LocationService;
 import com.udacity.bootstrap.service.DogNotFoundException;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +23,12 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@ApiResponses(value = {
+        @ApiResponse(code = 400, message = "Bad request, please follow API documentation"),
+        @ApiResponse(code = 401, message = "Security constraints: access request cannot be authorized"),
+        @ApiResponse(code = 404, message = "Dawg not found"),
+        @ApiResponse(code = 500, message = "The server is down")
+})
 public class DawgController {
 
     @Autowired
